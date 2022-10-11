@@ -3,6 +3,6 @@ import PostbackController from "../../controllers/PostbackControllers/PostbackCo
 
 const postbackRoutes = Router();
 
-postbackRoutes.post("/pagarme", PostbackController.pagarme);
+postbackRoutes.post(`/pagarme/:tokenAccess`, PostbackController.pagarme);
 
 export default postbackRoutes;
