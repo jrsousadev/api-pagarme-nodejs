@@ -1,0 +1,5 @@
+node_modules
+.env
+_update-notifier-last-checked
+_cacache
+_logs
