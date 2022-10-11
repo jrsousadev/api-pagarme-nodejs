@@ -42,7 +42,7 @@ export class CreateTransactionUseCase {
     private cartRepository: CartRepository,
 
     @inject("PagarMeProvider")
-    private pagarMeProvider: PagarMeProvider,
+    private pagarMeProvider: PagarMeProvider
   ) {}
 
   execute = async ({
@@ -102,7 +102,9 @@ export class CreateTransactionUseCase {
       billingComplementary,
     };
 
-    const transaction = await this.transactionRepository.create(infosTransaction);
+    const transaction = await this.transactionRepository.create(
+      infosTransaction
+    );
 
     const creditCard = {
       number: creditCardNumber,
@@ -124,7 +126,7 @@ export class CreateTransactionUseCase {
       neighborhood: billingNeighborhood,
       number: billingNumber,
       zipcode: billingZipCode,
-      complementary: billingComplementary
+      complementary: billingComplementary,
     };
 
     const responsePagarme = await this.pagarMeProvider.process({
