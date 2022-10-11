@@ -7,6 +7,7 @@ interface PostbackRequest {
   id: string;
   object: string;
   current_status: string;
+  tokenAccess: string;
 }
 
 interface PostbackUpdateStatus {
@@ -39,7 +40,9 @@ export class PostbackUseCase {
     })
   };
 
-  execute = async ({ id, object, current_status }: PostbackRequest) => {
+  execute = async ({ id, object, current_status, tokenAccess }: PostbackRequest) => {
+    if (tokenAccess !== process.env.PAGARME_URL_TOKEN_ACCESS) throw new AppError("Token not authorized", 400); 
+
     if (object === "transaction") {
       const transaction = await this.transactionRepository.readOne({
         transactionId: String(id),
