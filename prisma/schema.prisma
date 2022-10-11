@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Cart {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  code        String        @unique
+  price       Float
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  Transaction Transaction[]
+
+  @@map("Carts")
+}
+
+model Transaction {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  cart     Cart   @relation(fields: [cartCode], references: [id])
+  cartCode String @db.ObjectId
+  code     String @unique
+
+  total        Float
+  paymentType  PaymentType
+  installments Int
+  status       Status
+
+  transactionId String?
+
+  pixQRCODE     String?
+  pixExpiration String?
+
+  billetBarcode    String?
+  billetExpiration String?
+  billetUrl        String?
+
+  customerName     String
+  customerEmail    String
+  customerMobile   String
+  customerDocument String
+
+  billingAddress       String
+  billingNumber        String
+  billingNeighborhood  String
+  billingCity          String
+  billingState         String
+  billingZipCode       String
+  billingComplementary String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("Transactions")
+}
+
+enum Status {
+  started
+  processing
+  pending
+  approved
+  refused
+  refunded
+  chargeback
+  error
+}
+
+enum PaymentType {
+  credit_card
+  pix
+  billet
+}
