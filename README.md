@@ -75,7 +75,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 
 ### Iniciando o Projeto
 
-** Clone o repositório e instale as dependências.
+- Clone o repositório e instale as dependências.
 ```sh
 # install dependencies
 > yarn
