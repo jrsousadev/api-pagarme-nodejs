@@ -10,12 +10,12 @@ export interface TransactionDTO {
   installments: number;
   total: number;
 
-  pixQRCODE: string;
-  pixExpiration: string;
+  pixQRCODE: string | null;
+  pixExpiration: string | null;
 
-  billetBarcode: string;
-  billetExpiration: string;
-  billetUrl: string;
+  billetBarcode: string | null;
+  billetExpiration: string | null;
+  billetUrl: string | null;
 
   customerEmail: string;
   customerName: string;
