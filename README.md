@@ -8,7 +8,8 @@ API Desenvolvida com o intuito de gerenciar funcionários! (Challenge Seven)
 
 - [x] Typescript
 - [x] Express
-- [x] Postgress
+- [x] MongoDB
+- [x] Pagarme
 - [x] Prisma
 - [x] Nodejs
 
