@@ -113,6 +113,8 @@ export class PagarMeProvider {
       pending_refund: "refunded",
       refunded: "refunded",
       chargedback: "chargeback",
+      pending_review: "pending",
+      analyzing: "pending"
     };
 
     return statusMap[status];
