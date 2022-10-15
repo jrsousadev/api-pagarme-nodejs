@@ -82,6 +82,8 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 ### Criando uma transação no tipo: Boleto
 ![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009295-28f27067-ef87-4ba9-9214-34914126e695.png)
 
+### Criando uma transação no tipo: PIX
+![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009336-86be10c3-56e8-41e5-807f-42fe5f935da8.png)
 
 ### Iniciando o Projeto
 
