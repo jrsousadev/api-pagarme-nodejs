@@ -85,7 +85,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 # copy .env file
 > cp .env.example .env
 
-# Generating the migration
+# Generating MONGODB
 > yarn prisma generate
 
 # start project
