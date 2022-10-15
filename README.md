@@ -85,6 +85,9 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 ### Criando uma transação no tipo: PIX
 ![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009336-86be10c3-56e8-41e5-807f-42fe5f935da8.png)
 
+### Atualizando status de transação
+![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009455-14491cad-8852-44db-98ba-999cadad8fbe.png)
+
 ### Iniciando o Projeto
 
 - Clone o repositório e instale as dependências.
