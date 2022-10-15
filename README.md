@@ -2,7 +2,7 @@
 
 API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no seus devidos projetos.
 
-## O que foi utilizado no projeto:
+## O que foi utilizado no projeto
 
 - [x] Typescript
 - [x] Express
