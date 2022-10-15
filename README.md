@@ -11,7 +11,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 - [x] Prisma
 - [x] Nodejs
 
-### Regras de negócio:
+### Regras de negócio
 
 - [x] Criar Transação
 - [x] Ler todas as Transações
