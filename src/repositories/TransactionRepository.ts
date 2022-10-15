@@ -46,9 +46,9 @@ export interface DeleteTransactionData {
 }
 
 export interface TransactionRepository {
-  create: (data: CreateTransactionData) => Promise<any>;
-  readOne: (data: ReadOneTransactionData) => Promise<any | null>;
-  readAll: () => Promise<any[]>;
-  update: (data: UpdateTransactionData) => Promise<any>; 
+  create: (data: CreateTransactionData) => Promise<TransactionDTO>;
+  readOne: (data: ReadOneTransactionData) => Promise<TransactionDTO | null>;
+  readAll: () => Promise<TransactionDTO[]>;
+  update: (data: UpdateTransactionData) => Promise<TransactionDTO>; 
   delete: (data: DeleteTransactionData) => Promise<void>;
 }
