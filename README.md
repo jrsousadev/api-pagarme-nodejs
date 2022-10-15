@@ -76,6 +76,12 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 ### Explicação do .ENV
 ![Screenshot_2](https://user-images.githubusercontent.com/92350736/196009138-fe827df0-56e5-426c-9064-a52cb0953881.png)
 
+### Criando uma transação no tipo: Cartão de Crédito
+![Screenshot_3](https://user-images.githubusercontent.com/92350736/196009270-9e95104d-17b4-469c-b6ca-f87b80d364f6.png)
+
+### Criando uma transação no tipo: Boleto
+![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009295-28f27067-ef87-4ba9-9214-34914126e695.png)
+
 
 ### Iniciando o Projeto
 
