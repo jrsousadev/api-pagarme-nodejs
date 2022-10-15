@@ -1,8 +1,6 @@
-😺 Pagarme API Integration with NodeJS, Prisma and MongoDB
+## 😺 Pagarme API Integration with NodeJS, Prisma and MongoDB
 
-## 📋 Seven INC
-
-API Desenvolvida com o intuito de gerenciar funcionários! (Challenge Seven)
+API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no seus devidos projetos.
 
 ## O que foi utilizado no projeto:
 
@@ -15,43 +13,66 @@ API Desenvolvida com o intuito de gerenciar funcionários! (Challenge Seven)
 
 ### Regras de negócio:
 
-- [x] Cadastrar funcionário
-- [x] Editar funcionário        
-- [x] Deletar funcionário      
-- [x] Listar funcionário          
-- [x] Listar todos os funcionários 
+- [x] Criar Transação
+- [x] Ler todas as Transações
+    
+- [x] Criar Carrinho     
+- [x] Deletar Carrinho         
+- [x] Ler todos os Carrinhos
+- [x] Ler um Carrinho
+- [x] Atualizar Carrinho 
 
-### Endpoints:
+### Endpoints Cart:
 
-- [x] [POST] "/employee"
-- [x] [PUT] "/employee/:id"
-- [x] [DELETE] "/employee/:id"
-- [x] [GET] "/employee/:id"
-- [x] [GET] "/employee"
+- [x] [POST] "/api/cart"
+- [x] [PUT] "/api/cart/:id"
+- [x] [DELETE] "/api/cart/:id"
+- [x] [GET] "/api/cart/:id"
+- [x] [GET] "/api/cart"
+
+### Endpoints Transaction:
+
+- [x] [POST] "/api/transaction"
+- [x] [GET] "/api/transaction"
 
 ### Project architecture
 
 ```
 .
 ├── src/
+│   └── @types
 │   └── database
-|   └── environments
-|   └── modules
-|       └── Employeee
-|           └── Controllers
-|           └── Services
+│   └── DTO
+│   └── modules
+│     └── CartModule
+│     └── TransactionModule
+│   └── providers
+│     └── PagarMeProvider
 |   └── repositories
+│     └── CartRepository
+│     └── TransactionRepository
 |   └── shared
 |       └── containers
+|       └── controllers
 |       └── errors
-|       └── routes
-|   └── utils
+|       └── http
+|         └── middlewares
+|         └── routes
+|           └── Cart-routes
+|           └── Transaction-routes
+|           └── Postback-routes
+|         └── schemas
+|           └── Cart-schemas
+|           └── Transaction-schemas
+|         └── app.ts
+|         └── server.ts
+|       └── useCases
+│         └── CartUseCases
+│         └── TransactionUseCases
+│         └── PostbackUseCases
+|       └── utils
 └── ...
 ```
-
-### Exemplo API (Criar funcionário)
-
-![image](https://user-images.githubusercontent.com/92350736/189468078-6a5689d6-63a9-48c9-a825-4599621299ce.png)
 
 ### Iniciando o Projeto
 
