@@ -16,15 +16,15 @@ export const getPaymentType = (paymentType: string) => {
   return "";
 };
 
-export const getStatusType = (status: string) => {
-  if (status === Status.started) return Status.started;
-  if (status === Status.approved) return Status.approved;
-  if (status === Status.chargeback) return Status.chargeback;
-  if (status === Status.error) return Status.error;
-  if (status === Status.pending) return Status.pending;
-  if (status === Status.processing) return Status.processing;
-  if (status === Status.refunded) return Status.refunded;
-  if (status === Status.refused) return Status.refused;
-
-  return "";
+export const getStatusType = (status: string | undefined) => {
+  if (typeof status !== "undefined") {
+    if (status === Status.started) return Status.started;
+    if (status === Status.approved) return Status.approved;
+    if (status === Status.chargeback) return Status.chargeback;
+    if (status === Status.error) return Status.error;
+    if (status === Status.pending) return Status.pending;
+    if (status === Status.processing) return Status.processing;
+    if (status === Status.refunded) return Status.refunded;
+    if (status === Status.refused) return Status.refused;
+  }
 };
