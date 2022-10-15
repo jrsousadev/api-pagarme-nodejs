@@ -1,6 +1,7 @@
 import type { PaymentType, Status } from "@prisma/client";
 
 export interface TransactionDTO {
+  code: string;
   id: string;
   cartCode: string;
   
