@@ -11,21 +11,22 @@ export class CartModule implements CartRepository {
   create = async (data: CreateCartData) => {
     return await prismaClient.cart.create({ data });
   };
-  readOne = async ({ id }: ReadOneCartData) => {
-    const cart = await prismaClient.cart.findFirst({
-      where: {
-        code: id,
-      },
-    });
+  readOne = async ({ id, code }: ReadOneCartData) => {
+    if (code) {
+      return await prismaClient.cart.findFirst({
+        where: {
+          code,
+        },
+      });
+    }
 
-    if (!cart)
+    if (id) {
       return await prismaClient.cart.findFirst({
         where: {
           id,
         },
       });
-
-    return cart;
+    }
   };
   readAll = async () => {
     return await prismaClient.cart.findMany({});
