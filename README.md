@@ -21,7 +21,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 - [x] Ler um Carrinho
 - [x] Atualizar Carrinho 
 
-### Endpoints Cart:
+### Endpoints Cart
 
 - [x] [POST] "/api/cart"
 - [x] [PUT] "/api/cart/:id"
