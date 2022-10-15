@@ -15,7 +15,6 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 
 - [x] Criar Transação
 - [x] Ler todas as Transações
-    
 - [x] Criar Carrinho     
 - [x] Deletar Carrinho         
 - [x] Ler todos os Carrinhos
