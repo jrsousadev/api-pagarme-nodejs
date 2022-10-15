@@ -4,7 +4,7 @@ import { TransactionRepository } from "../../../repositories/TransactionReposito
 import { PagarMeProvider } from "../../../providers/PagarMeProvider";
 
 interface PostbackRequest {
-  id: string;
+  id: string | number;
   object: string;
   current_status: string;
   tokenAccess: string;
@@ -41,7 +41,7 @@ export class PostbackUseCase {
   };
 
   execute = async ({ id, object, current_status, tokenAccess }: PostbackRequest) => {
-    if (tokenAccess !== process.env.PAGARME_URL_TOKEN_ACCESS) throw new AppError("Token not authorized", 400); 
+    if (tokenAccess !== process.env.PAGARME_URL_TOKEN_ACCESS) throw new AppError("Token not authorized", 400);
 
     if (object === "transaction") {
       const transaction = await this.transactionRepository.readOne({
@@ -51,7 +51,7 @@ export class PostbackUseCase {
       if (!transaction) throw new AppError("Transaction not found", 404);
 
       await this.updateStatus({
-        code: transaction.code,
+        code: String(transaction.code),
         providerStatus: current_status,
       });
 
