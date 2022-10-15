@@ -6,6 +6,7 @@ import {
   TransactionRepository,
   UpdateTransactionData,
 } from "../repositories/TransactionRepository";
+import { getStatusType } from "../shared/utils/getTypesPrisma";
 
 export class TransactionModule implements TransactionRepository {
   create = async (data: CreateTransactionData) => {
@@ -50,6 +51,7 @@ export class TransactionModule implements TransactionRepository {
     billetExpiration,
     billetUrl,
   }: UpdateTransactionData) => {
+    const newStatus = getStatusType(status);
     return await prismaClient.transaction.update({
       where: {
         id,
@@ -58,7 +60,7 @@ export class TransactionModule implements TransactionRepository {
         transactionId,
         pixExpiration,
         pixQRCODE,
-        status,
+        status: newStatus,
         billetBarcode,
         billetExpiration,
         billetUrl,
