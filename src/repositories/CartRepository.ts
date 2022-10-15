@@ -22,7 +22,7 @@ export interface DeleteCartData {
 
 export interface CartRepository {
   create: (data: CreateCartData) => Promise<CartDTO>;
-  readOne: (data: ReadOneCartData) => Promise<CartDTO | null>;
+  readOne: (data: ReadOneCartData) => Promise<CartDTO | null | undefined>;
   readAll: () => Promise<CartDTO[]>;
   update: (data: UpdateCartData) => Promise<CartDTO>;
   delete: (data: DeleteCartData) => Promise<void>;
