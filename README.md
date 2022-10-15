@@ -34,7 +34,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 - [x] [POST] "/api/transaction"
 - [x] [GET] "/api/transaction"
 
-### Project architecture
+### Arquitetura do Projeto
 
 ```
 .
