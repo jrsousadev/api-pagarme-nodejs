@@ -77,7 +77,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 ![Screenshot_2](https://user-images.githubusercontent.com/92350736/196009138-fe827df0-56e5-426c-9064-a52cb0953881.png)
 
 ### Criando uma transação no tipo: Cartão de Crédito
-![Screenshot_3](https://user-images.githubusercontent.com/92350736/196009270-9e95104d-17b4-469c-b6ca-f87b80d364f6.png)
+![Screenshot_2](https://user-images.githubusercontent.com/92350736/196009571-2fcac14d-fdcf-4fa8-bf03-f108ef30c752.png)
 
 ### Criando uma transação no tipo: Boleto
 ![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009538-fcc72dad-68c9-46aa-baf4-69478e446a69.png)
