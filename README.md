@@ -73,6 +73,10 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 └── ...
 ```
 
+### Explicação do .ENV
+![Screenshot_2](https://user-images.githubusercontent.com/92350736/196009138-fe827df0-56e5-426c-9064-a52cb0953881.png)
+
+
 ### Iniciando o Projeto
 
 - Clone o repositório e instale as dependências.
