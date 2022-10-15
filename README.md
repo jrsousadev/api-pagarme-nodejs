@@ -4,6 +4,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 
 ## O que foi utilizado no projeto
 
+- [x] Dependency Injection
 - [x] Typescript
 - [x] Express
 - [x] MongoDB
