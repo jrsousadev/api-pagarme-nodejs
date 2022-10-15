@@ -80,7 +80,7 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 ![Screenshot_3](https://user-images.githubusercontent.com/92350736/196009270-9e95104d-17b4-469c-b6ca-f87b80d364f6.png)
 
 ### Criando uma transação no tipo: Boleto
-![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009295-28f27067-ef87-4ba9-9214-34914126e695.png)
+![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009538-fcc72dad-68c9-46aa-baf4-69478e446a69.png)
 
 ### Criando uma transação no tipo: PIX
 ![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009503-b0027009-bed5-4939-b04a-3634338a8c95.png)
