@@ -78,7 +78,7 @@ export class CreateTransactionUseCase {
     const paymentTypeValid = getPaymentType(paymentType);
     const statusValid = getStatusType(initalStatus);
 
-    if (paymentTypeValid === "" || statusValid === "") {
+    if (paymentTypeValid === "" || statusValid === undefined) {
       throw new AppError(`${paymentType} or status invalid`, 400);
     }
 
