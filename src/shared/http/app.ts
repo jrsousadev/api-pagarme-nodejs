@@ -7,9 +7,7 @@ import swaggerDocs from "../../documentation/swagger.json";
 import cors from "cors";
 import routes from "./routes";
 import "express-async-errors";
-import '../container/';
-
-import { AppError } from "../errors/AppError";
+import "../container/";
 
 dotenv.config();
 
