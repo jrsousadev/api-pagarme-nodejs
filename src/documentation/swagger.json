@@ -82,6 +82,22 @@
         "responses": {}
       },
 
+      "get": {
+        "summary": "Get one Cart",
+        "description": "This route will be responsible for picking up a cart",
+        "tags": ["Cart"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Cart ID to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+
       "delete": {
         "summary": "Delete Cart",
         "description": "This route will be responsible for deleting the cart",
