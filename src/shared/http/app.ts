@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(cors());
-app.use(routes);
+app.use("/api", routes);
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
   if(err instanceof AppError){
