@@ -17,9 +17,10 @@ app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(cors());
 app.use("/api", routes);
 
-app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
-  if(err instanceof AppError){
-    return response.status(err.statusCode).json({
+app.use(
+  (err: Error, request: Request, response: Response, next: NextFunction) => {
+    if (err instanceof AppError) {
+      return response.status(err.statusCode).json({
       message: err.message
     });
   }
