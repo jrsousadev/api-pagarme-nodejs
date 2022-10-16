@@ -6,6 +6,7 @@ class UpdateCartController {
   async handle(request: Request, response: Response): Promise<any> {
     try {
       const { id } = request.params;
+
       const { code, price } = request.body;
 
       const updateCartUseCase = container.resolve(UpdateCartUseCase);
