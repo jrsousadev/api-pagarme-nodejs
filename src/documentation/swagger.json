@@ -83,7 +83,7 @@
       },
 
       "delete": {
-        "summary": "Update Cart",
+        "summary": "Delete Cart",
         "description": "This route will be responsible for deleting the cart",
         "tags": ["Cart"],
         "parameters": [
