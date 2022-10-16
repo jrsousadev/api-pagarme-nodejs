@@ -203,6 +203,15 @@
         "summary": "Update Status Transaction - PagarMe Webhook",
         "description": "This route will be responsible for updating the status of transactions through the PagarMe request",
         "tags": ["Postback"],
+        "parameters": [
+          {
+            "name": "tokenAccess",
+            "in": "path",
+            "description": "tokenAccess to authorization updated status",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
