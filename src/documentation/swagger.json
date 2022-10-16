@@ -197,6 +197,31 @@
         "tags": ["Transaction"],
         "responses": {}
       }
+    },
+    "/api/postbacks/pagarme/{tokenAccess}": {
+      "post": {
+        "summary": "Update Status Transaction - PagarMe Webhook",
+        "description": "This route will be responsible for updating the status of transactions through the PagarMe request",
+        "tags": ["Postback"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartRequest"
+              },
+              "examples": {
+                "cart": {
+                  "value": {
+                    "code": "di42145-49154d-dz495d-5eijd4",
+                    "price": 200
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
     }
   },
 
@@ -280,6 +305,21 @@
           },
           "price": {
             "type": "number"
+          }
+        }
+      },
+      "PostbackRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "object": {
+            "type": "string",
+            "enum": ["transaction"]
+          },
+          "current_status": {
+            "type": "string"
           }
         }
       }
