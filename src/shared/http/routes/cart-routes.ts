@@ -14,6 +14,6 @@ cartRoutes.post("/", validateCreateCartSchema, CreateCartController.handle);
 cartRoutes.get("/:id", ReadOneCartController.handle);
 cartRoutes.get("/", ReadAllCartController.handle);
 cartRoutes.put("/:id", validateUpdateCartSchema, UpdateCartController.handle);
-cartRoutes.delete("/:code", DeleteCartController.handle);
+cartRoutes.delete("/:id", DeleteCartController.handle);
 
 export default cartRoutes;
