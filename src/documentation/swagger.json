@@ -207,13 +207,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CartRequest"
+                "$ref": "#/components/schemas/PostbackRequest"
               },
               "examples": {
-                "cart": {
+                "postback": {
                   "value": {
-                    "code": "di42145-49154d-dz495d-5eijd4",
-                    "price": 200
+                    "id": "4219582421",
+                    "object": "transaction",
+                    "current_status": "paid"
                   }
                 }
               }
