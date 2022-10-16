@@ -113,11 +113,106 @@
         ],
         "responses": {}
       }
+    },
+    "/api/transaction": {
+      "post": {
+        "summary": "Create Transaction",
+        "description": "This route will be responsible for creating a transaction",
+        "tags": ["Cart"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartRequest"
+              },
+              "examples": {
+                "cart": {
+                  "value": {
+                    "code": "di42145-49154d-dz495d-5eijd4",
+                    "price": 200
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
     }
   },
 
   "components": {
     "schemas": {
+      "TransactionRequest": {
+        "type": "object",
+        "properties": {
+          "cartCode": {
+            "type": "string"
+          },
+          "paymentType": {
+            "type": "string",
+            "enum": ["billet", "credit_card", "pix"]
+          },
+          "installments": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "customerName": {
+            "type": "string"
+          },
+          "customerEmail": {
+            "type": "string"
+          },
+          "customerMobile": {
+            "type": "string"
+          },
+          "customerDocument": {
+            "type": "string"
+          },
+          "billingAddress": {
+            "type": "string"
+          },
+          "billingNumber": {
+            "type": "string"
+          },
+          "billingNeighborhood": {
+            "type": "string"
+          },
+          "billingCity": {
+            "type": "string"
+          },
+          "billingState": {
+            "type": "string"
+          },
+          "billingZipCode": {
+            "type": "string"
+          },
+          "billingZipComplementary": {
+            "type": "string"
+          },
+          "creditCardNumber": {
+            "type": "string",
+            "required": false
+          },
+          "creditCardExpiration": {
+            "type": "string",
+            "required": false
+          },
+          "creditCardHolderName": {
+            "type": "string",
+            "required": false
+          },
+          "creditCardCvv": {
+            "type": "string",
+            "required": false
+          },
+          "pixExpirationDate": {
+            "type": "date",
+            "required": "false"
+          }
+        }
+      },
       "CartRequest": {
         "type": "object",
         "properties": {
