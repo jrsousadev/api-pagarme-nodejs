@@ -55,6 +55,7 @@ class CreateTransactionController {
 
       return response.status(201).json(transaction);
     } catch (err: any) {
+      console.log(err)
       return response.status(err.statusCode).json(err);
     }
   }

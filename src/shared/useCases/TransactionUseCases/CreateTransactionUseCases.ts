@@ -83,7 +83,7 @@ export class CreateTransactionUseCase {
     }
 
     const infosTransaction: CreateTransactionData = {
-      cartCode: cart.id,
+      cartCode: String(cart.id),
       code,
       total: cart.price,
       status: statusValid,

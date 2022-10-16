@@ -141,7 +141,7 @@
                     "billingCity": "São Paulo",
                     "billingState": "SP",
                     "billingZipCode": "11111-111",
-                    "billingZipComplementary": "Complementary",
+                    "billingComplementary": "Complementary",
                     "creditCardNumber": "4111111111111111",
                     "creditCardExpiration": "08/23",
                     "creditCardHolderName": "Holder Name",
@@ -163,7 +163,7 @@
                     "billingCity": "São Paulo",
                     "billingState": "SP",
                     "billingZipCode": "11111-111",
-                    "billingZipComplementary": "Complementary"
+                    "billingComplementary": "Complementary"
                   }
                 },
                 "transaction pix": {
@@ -181,7 +181,7 @@
                     "billingCity": "São Paulo",
                     "billingState": "SP",
                     "billingZipCode": "11111-111",
-                    "billingZipComplementary": "Complementary",
+                    "billingComplementary": "Complementary",
                     "pixExpirationDate": "2022-12-25T15:00:00"
                   }
                 }
@@ -282,7 +282,7 @@
           "billingZipCode": {
             "type": "string"
           },
-          "billingZipComplementary": {
+          "billingComplementary": {
             "type": "string"
           },
           "creditCardNumber": {
