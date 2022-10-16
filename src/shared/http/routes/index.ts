@@ -6,8 +6,8 @@ import transactionRoutes from "./transaction-routes";
 
 const routes = Router();
 
-routes.use('/api/cart', cartRoutes);
-routes.use('/api/transaction', transactionRoutes);
-routes.use('/api/postbacks', postbackRoutes);
+routes.use('/cart', cartRoutes);
+routes.use('/transaction', transactionRoutes);
+routes.use('/postbacks', postbackRoutes);
 
 export default routes;
