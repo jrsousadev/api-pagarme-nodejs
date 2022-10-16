@@ -118,12 +118,12 @@
       "post": {
         "summary": "Create Transaction",
         "description": "This route will be responsible for creating a transaction",
-        "tags": ["Cart"],
+        "tags": ["Transaction"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CartRequest"
+                "$ref": "#/components/schemas/TransactionRequest"
               },
               "examples": {
                 "transaction credit_card": {
@@ -274,26 +274,6 @@
           },
           "price": {
             "type": "number"
-          }
-        }
-      },
-      "CartResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "code": {
-            "type": "string"
-          },
-          "price": {
-            "type": "number"
-          },
-          "createdAt": {
-            "type": "date"
-          },
-          "updatedAt": {
-            "type": "date"
           }
         }
       }
