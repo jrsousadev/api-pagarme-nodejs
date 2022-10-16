@@ -168,8 +168,21 @@
                 },
                 "transaction pix": {
                   "value": {
-                    "code": "di42145-49154d-dz495d-5eijd4",
-                    "price": 200
+                    "cartCode": "4oek3e-dudqozd-dudkflz-oeiwe",
+                    "paymentType": "pix",
+                    "installments": 1,
+                    "customerName": "Fulano Example",
+                    "customerEmail": "example@example.com",
+                    "customerMobile": "(11) 11111-1111",
+                    "customerDocument": "111.111.111-11",
+                    "billingAddress": "Address",
+                    "billingNumber": "123",
+                    "billingNeighborhood": "Center",
+                    "billingCity": "São Paulo",
+                    "billingState": "SP",
+                    "billingZipCode": "11111-111",
+                    "billingZipComplementary": "Complementary",
+                    "pixExpirationDate": "2022-12-25T15:00:00"
                   }
                 }
               }
