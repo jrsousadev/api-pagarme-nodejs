@@ -47,6 +47,56 @@
         "tags": ["Cart"],
         "responses": {}
       }
+    },
+    "/api/cart/{id}": {
+      "put": {
+        "summary": "Update Cart",
+        "description": "This route will be responsible for updating the cart",
+        "tags": ["Cart"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Cart ID to update",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartRequest"
+              },
+              "examples": {
+                "cart": {
+                  "value": {
+                    "code": "di42145-49154d-dz495d-44444",
+                    "price": 450
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      },
+
+      "delete": {
+        "summary": "Update Cart",
+        "description": "This route will be responsible for deleting the cart",
+        "tags": ["Cart"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Cart ID to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
     }
   },
 
