@@ -190,6 +190,12 @@
           }
         },
         "responses": {}
+      },
+      "get": {
+        "summary": "Get Transactions",
+        "description": "This route will be responsible for picking up all the transactions",
+        "tags": ["Transaction"],
+        "responses": {}
       }
     }
   },
