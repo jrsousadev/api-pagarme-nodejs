@@ -126,7 +126,47 @@
                 "$ref": "#/components/schemas/CartRequest"
               },
               "examples": {
-                "cart": {
+                "transaction credit_card": {
+                  "value": {
+                    "cartCode": "4oek3e-dudqozd-dudkflz-oeiwe",
+                    "paymentType": "credit_card",
+                    "installments": 6,
+                    "customerName": "Fulano Example",
+                    "customerEmail": "example@example.com",
+                    "customerMobile": "(11) 11111-1111",
+                    "customerDocument": "111.111.111-11",
+                    "billingAddress": "Address",
+                    "billingNumber": "123",
+                    "billingNeighborhood": "Center",
+                    "billingCity": "São Paulo",
+                    "billingState": "SP",
+                    "billingZipCode": "11111-111",
+                    "billingZipComplementary": "Complementary",
+                    "creditCardNumber": "4111111111111111",
+                    "creditCardExpiration": "08/23",
+                    "creditCardHolderName": "Holder Name",
+                    "creditCardCvv": "123"
+                  }
+                },
+                "transaction billet": {
+                  "value": {
+                    "cartCode": "4oek3e-dudqozd-dudkflz-oeiwe",
+                    "paymentType": "billet",
+                    "installments": 1,
+                    "customerName": "Fulano Example",
+                    "customerEmail": "example@example.com",
+                    "customerMobile": "(11) 11111-1111",
+                    "customerDocument": "111.111.111-11",
+                    "billingAddress": "Address",
+                    "billingNumber": "123",
+                    "billingNeighborhood": "Center",
+                    "billingCity": "São Paulo",
+                    "billingState": "SP",
+                    "billingZipCode": "11111-111",
+                    "billingZipComplementary": "Complementary"
+                  }
+                },
+                "transaction pix": {
                   "value": {
                     "code": "di42145-49154d-dz495d-5eijd4",
                     "price": 200
