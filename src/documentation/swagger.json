@@ -1,0 +1,88 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API PagarMe V4",
+    "description": "Essa API foi criada com o intuito de ajudar pessoas a integrar o Gateway da PagarMe em seus projetos NodeJS.",
+    "termsOfService": "API Terms",
+    "contact": {
+      "email": "jrsousadev@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "API Testing"
+    }
+  ],
+  "paths": {
+    "/api/cart": {
+      "post": {
+        "summary": "Create Cart",
+        "description": "This route will be responsible for creating a cart",
+        "tags": ["Cart"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartRequest"
+              },
+              "examples": {
+                "cart": {
+                  "value": {
+                    "code": "di42145-49154d-dz495d-5eijd4",
+                    "price": 200
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {}
+      },
+
+      "get": {
+        "summary": "Get Carts",
+        "description": "This route will be responsible for picking up all the carts",
+        "tags": ["Cart"],
+        "responses": {}
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "CartRequest": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      },
+      "CartResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "createdAt": {
+            "type": "date"
+          },
+          "updatedAt": {
+            "type": "date"
+          }
+        }
+      }
+    }
+  }
+}
