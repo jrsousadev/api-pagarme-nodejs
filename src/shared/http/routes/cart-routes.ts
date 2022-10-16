@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { expressYupMiddleware } from "express-yup-middleware";
-import { CreateCartSchema, UpdateCartSchema } from "../schemas/cart-schemas";
+import { validateCreateCartSchema } from "../middlewares/validatesSchemas/validateCreateCartSchema";
+import { validateUpdateCartSchema } from "../middlewares/validatesSchemas/validateUpdateCartSchema";
 
 import CreateCartController from "../../controllers/CartControllers/CreateCartController";
 import DeleteCartController from "../../controllers/CartControllers/DeleteCartController";
@@ -10,18 +10,10 @@ import UpdateCartController from "../../controllers/CartControllers/UpdateCartCo
 
 const cartRoutes = Router();
 
-cartRoutes.post(
-  "/",
-  expressYupMiddleware({ schemaValidator: CreateCartSchema }),
-  CreateCartController.handle
-);
+cartRoutes.post("/", validateCreateCartSchema, CreateCartController.handle);
 cartRoutes.get("/:id", ReadOneCartController.handle);
 cartRoutes.get("/", ReadAllCartController.handle);
-cartRoutes.put(
-  "/:id",
-  expressYupMiddleware({ schemaValidator: UpdateCartSchema }),
-  UpdateCartController.handle
-);
+cartRoutes.put("/:id", validateUpdateCartSchema, UpdateCartController.handle);
 cartRoutes.delete("/:code", DeleteCartController.handle);
 
 export default cartRoutes;
