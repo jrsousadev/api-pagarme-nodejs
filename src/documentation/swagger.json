@@ -198,6 +198,23 @@
         "responses": {}
       }
     },
+    "/api/transaction/{code}": {
+      "get": {
+        "summary": "Get one Transaction",
+        "description": "This route will be responsible for picking up a transaction",
+        "tags": ["Transaction"],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Transaction CODE to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/api/postbacks/pagarme/{tokenAccess}": {
       "post": {
         "summary": "Update Status Transaction - PagarMe Webhook",
