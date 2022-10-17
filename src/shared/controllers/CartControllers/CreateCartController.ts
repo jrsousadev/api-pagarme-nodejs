@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { AppError } from "../../errors/AppError";
 import { CreateCartUseCase } from "../../useCases/CartUseCases/CreateCartUseCase";
 
 class CreateCartController {
@@ -9,7 +10,9 @@ class CreateCartController {
 
       const createCartUseCase = container.resolve(CreateCartUseCase);
 
-      const cart = await createCartUseCase.execute({ code, price });
+      const cart: any = await createCartUseCase.execute({ code, price });
+
+      if (cart.message) throw new AppError(cart.message, cart.statusCode);
 
       return response.status(201).json(cart);
     } catch (err: any) {
