@@ -13,6 +13,9 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 - [x] Prisma
 - [x] Nodejs
 
+### Documentação Swagger
+- [x] http://localhost:3000/docs
+
 ### Regras de negócio
 
 - [x] Criar Transação
