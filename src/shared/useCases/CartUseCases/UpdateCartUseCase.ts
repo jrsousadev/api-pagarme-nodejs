@@ -13,12 +13,19 @@ export class UpdateCartUseCase {
   ) {}
 
   execute = async ({ id, code, price }: UpdateCartData) => {
-    const cartExist = await this.cartRepository.readOne({ id });
+    try {
+      const cartExist = await this.cartRepository.readOne({ id });
 
-    if (!cartExist) throw new AppError("Cart is not exist", 404);
+      if (!cartExist) throw new AppError("Cart is not exist", 404);
 
-    const cart = await this.cartRepository.update({ id, code, price });
+      const cart = await this.cartRepository.update({ id, code, price });
 
-    return cart;
+      return cart;
+    } catch (err) {
+      return {
+        message: "Cart is not exist",
+        statusCode: 400,
+      };
+    }
   };
 }
