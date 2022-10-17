@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { AppError } from "../../errors/AppError";
 import { PostbackUseCase } from "../../useCases/PostbackUseCases/PostbackUseCase";
 
 class PostbackController {
@@ -10,12 +11,14 @@ class PostbackController {
 
       const postbackUseCase = container.resolve(PostbackUseCase);
 
-      const transaction = await postbackUseCase.execute({
+      const transaction: any = await postbackUseCase.execute({
         id,
         object,
         current_status,
         tokenAccess: String(tokenAccess),
       });
+
+      if (transaction.message) throw new AppError(transaction.message, transaction.statusCode);
 
       return response.status(201).json(transaction);
     } catch (err: any) {
