@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { AppError } from "../../errors/AppError";
 import { GetTransactionUseCase } from "../../useCases/TransactionUseCases/GetTransactionUseCase";
 
 class GetTransactionController {
@@ -9,7 +10,9 @@ class GetTransactionController {
         GetTransactionUseCase
       );
 
-      const transactions = await getTransactionUseCase.execute();
+      const transactions: any = await getTransactionUseCase.execute();
+
+      if (transactions.message) throw new AppError(transactions.message, transactions.statusCode);
 
       return response.status(200).json(transactions);
     } catch (err: any) {
