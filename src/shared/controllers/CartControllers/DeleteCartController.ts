@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { AppError } from "../../errors/AppError";
 import { DeleteCartUseCase } from "../../useCases/CartUseCases/DeleteCartUseCase";
 
 class DeleteCartController {
@@ -8,7 +9,9 @@ class DeleteCartController {
       const { id } = request.params;
 
       const deleteCartUseCase = container.resolve(DeleteCartUseCase);
-      const cart = await deleteCartUseCase.execute(id);
+      const cart: any = await deleteCartUseCase.execute(id);
+
+      if (cart.message) throw new AppError(cart.message, cart.statusCode);
 
       return response.status(202).json(cart);
     } catch (err: any) {
