@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+import { AppError } from "../../errors/AppError";
 import { CreateTransactionUseCase } from "../../useCases/TransactionUseCases/CreateTransactionUseCases";
 
 class CreateTransactionController {
@@ -31,7 +32,7 @@ class CreateTransactionController {
         CreateTransactionUseCase
       );
 
-      const transaction = await createTransactionUseCase.execute({
+      const transaction: any = await createTransactionUseCase.execute({
         cartCode,
         paymentType,
         installments,
@@ -52,6 +53,8 @@ class CreateTransactionController {
         creditCardCvv,
         pixExpirationDate,
       });
+
+      if (transaction.message) throw new AppError(transaction.message, transaction.statusCode);
 
       return response.status(201).json(transaction);
     } catch (err: any) {
