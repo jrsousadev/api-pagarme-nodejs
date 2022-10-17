@@ -9,7 +9,11 @@ import {
 
 export class CartModule implements CartRepository {
   create = async (data: CreateCartData) => {
-    return await prismaClient.cart.create({ data });
+    try {
+      return await prismaClient.cart.create({ data });
+    } catch (err) {
+      throw err
+    }
   };
   readOne = async ({ id, code }: ReadOneCartData) => {
     try {
