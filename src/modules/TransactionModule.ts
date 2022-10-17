@@ -46,7 +46,11 @@ export class TransactionModule implements TransactionRepository {
   };
 
   readAll = async () => {
-    return await prismaClient.transaction.findMany({});
+    try {
+      return await prismaClient.transaction.findMany({});
+    } catch (err) {
+      throw err
+    }
   };
 
   update = async ({
@@ -59,28 +63,36 @@ export class TransactionModule implements TransactionRepository {
     billetExpiration,
     billetUrl,
   }: UpdateTransactionData) => {
-    const newStatus = getStatusType(status);
-    return await prismaClient.transaction.update({
-      where: {
-        id,
-      },
-      data: {
-        transactionId,
-        pixExpiration,
-        pixQRCODE,
-        status: newStatus,
-        billetBarcode,
-        billetExpiration,
-        billetUrl,
-      },
-    });
+    try {
+      const newStatus = getStatusType(status);
+      return await prismaClient.transaction.update({
+        where: {
+          id,
+        },
+        data: {
+          transactionId,
+          pixExpiration,
+          pixQRCODE,
+          status: newStatus,
+          billetBarcode,
+          billetExpiration,
+          billetUrl,
+        },
+      });
+    } catch (err) {
+      throw err
+    }
   };
 
   delete = async ({ id }: DeleteTransactionData) => {
-    await prismaClient.transaction.delete({
-      where: {
-        id,
-      },
-    });
+    try {
+      await prismaClient.transaction.delete({
+        where: {
+          id,
+        },
+      });
+    } catch (err) {
+      throw err
+    }
   };
 }
