@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { GetTransactionUseCase } from "../../useCases/TransactionUseCases/GetTransactionUseCase";
 
-class CreateTransactionController {
+class GetTransactionController {
   async handle(request: Request, response: Response): Promise<any> {
     try {
       const getTransactionUseCase = container.resolve(
@@ -18,4 +18,4 @@ class CreateTransactionController {
   }
 }
 
-export default new CreateTransactionController();
+export default new GetTransactionController();
