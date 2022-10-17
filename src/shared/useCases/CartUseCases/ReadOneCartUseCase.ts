@@ -10,10 +10,17 @@ export class ReadOneCartUseCase {
   ) {}
 
   execute = async (id: string) => {
-    const cart = await this.cartRepository.readOne({ id: String(id) });
+    try {
+      const cart = await this.cartRepository.readOne({ id: String(id) });
 
-    if (!cart) throw new AppError("Cart is not exist", 404);
+      if (!cart) throw new AppError("Cart is not exist", 404);
 
-    return cart;
+      return cart;
+    } catch (err) {
+      return {
+        message: "Cart is not exist",
+        statusCode: 404
+      }
+    }
   };
 }
