@@ -14,10 +14,17 @@ export class GetOneTransactionUseCase {
   ) {}
 
   execute = async ({ code }: Request) => {
-    const transaction = await this.transactionRepository.readOne({ code });
+    try {
+      const transaction = await this.transactionRepository.readOne({ code });
 
-    if (!transaction) throw new AppError("Transaction was not found")
+      if (!transaction) throw new AppError("Transaction was not found");
 
-    return transaction;
+      return transaction;
+    } catch (err) {
+      return {
+        message: "Transaction was not found",
+        statusCode: 400,
+      };
+    }
   };
 }
