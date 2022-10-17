@@ -16,7 +16,7 @@ class CreateCartController {
 
       return response.status(201).json(cart);
     } catch (err: any) {
-      return response.status(err.statusCode).json(err)
+      return response.status(err.statusCode).json(err);
     }
   }
 }
