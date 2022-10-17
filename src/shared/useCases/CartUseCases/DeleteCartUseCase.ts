@@ -10,18 +10,21 @@ export class DeleteCartUseCase {
   ) {}
 
   execute = async (id: string) => {
-    const cart = await this.cartRepository.readOne({ id });
+    try {
+      const cart = await this.cartRepository.readOne({ id });
 
-    if (!cart) throw new AppError("Cart is not exist", 404);
+      if (!cart) throw new AppError("Cart is not exist", 404);
 
-    await this.cartRepository.delete({ id });
+      await this.cartRepository.delete({ id });
 
-    const isCartExist = await this.cartRepository.readOne({ id });
+      const isCartExist = await this.cartRepository.readOne({ id });
 
-    if (isCartExist) throw new AppError("Internal server error", 500);
-
-    return {
-      message: "Cart Deleted"
-    };
+      if (isCartExist) throw new AppError("Internal server error", 500);
+    } catch (err) {
+      return {
+        message: "Cart is not exist",
+        statusCode: 404,
+      };
+    }
   };
 }
