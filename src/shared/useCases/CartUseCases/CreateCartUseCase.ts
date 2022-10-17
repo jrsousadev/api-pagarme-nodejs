@@ -13,12 +13,19 @@ export class CreateCartUseCase {
   ) {}
 
   execute = async ({ code, price }: CreateCartData) => {
-    const cartCode = await this.cartRepository.readOne({ code });
+    try {
+      const cartCode = await this.cartRepository.readOne({ code });
 
-    if (cartCode) throw new AppError("Cart Code Already Exist");
-
-    const cart = await this.cartRepository.create({ code, price });
-
-    return cart;
+      if (cartCode) throw new AppError("Cart Code Already Exist");
+  
+      const cart = await this.cartRepository.create({ code, price });
+  
+      return cart;
+    } catch (err) {
+      return {
+        message: "Cart Code Already Exist",
+        statusCode: 400,
+      }
+    }
   };
 }
