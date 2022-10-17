@@ -1,20 +1,25 @@
 import { inject, injectable } from "tsyringe";
-import {
-  TransactionRepository,
-} from "../../../repositories/TransactionRepository";
+import { TransactionRepository } from "../../../repositories/TransactionRepository";
 
 @injectable()
 export class GetTransactionUseCase {
   constructor(
     @inject("TransactionRepository")
-    private transactionRepository: TransactionRepository,
+    private transactionRepository: TransactionRepository
   ) {}
 
   execute = async () => {
-    const transactions = await this.transactionRepository.readAll();
+    try {
+      const transactions = await this.transactionRepository.readAll();
 
-    if (!transactions) return [];
+      if (!transactions) return [];
 
-    return transactions;
+      return transactions;
+    } catch (err) {
+      return {
+        message: "Internal Server error",
+        statusCode: 400,
+      };
+    }
   };
 }
