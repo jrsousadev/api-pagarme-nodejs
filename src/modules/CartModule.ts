@@ -12,41 +12,57 @@ export class CartModule implements CartRepository {
     return await prismaClient.cart.create({ data });
   };
   readOne = async ({ id, code }: ReadOneCartData) => {
-    if (code) {
-      return await prismaClient.cart.findFirst({
+    try {
+      if (code) {
+        return await prismaClient.cart.findFirst({
+          where: {
+            code,
+          },
+        });
+      }
+
+      if (id) {
+        return await prismaClient.cart.findFirst({
+          where: {
+            id,
+          },
+        });
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
+  readAll = async () => {
+    try {
+      return await prismaClient.cart.findMany({});
+    } catch (err) {
+      throw err;
+    }
+  };
+  update = async ({ id, code, price }: UpdateCartData) => {
+    try {
+      return await prismaClient.cart.update({
         where: {
+          id,
+        },
+        data: {
           code,
+          price,
         },
       });
+    } catch (err) {
+      throw err;
     }
-
-    if (id) {
-      return await prismaClient.cart.findFirst({
+  };
+  delete = async ({ id }: DeleteCartData) => {
+    try {
+      await prismaClient.cart.delete({
         where: {
           id,
         },
       });
+    } catch (err) {
+      throw err;
     }
-  };
-  readAll = async () => {
-    return await prismaClient.cart.findMany({});
-  };
-  update = async ({ id, code, price }: UpdateCartData) => {
-    return await prismaClient.cart.update({
-      where: {
-        id,
-      },
-      data: {
-        code,
-        price,
-      },
-    });
-  };
-  delete = async ({ id }: DeleteCartData) => {
-    await prismaClient.cart.delete({
-      where: {
-        id,
-      },
-    });
   };
 }
