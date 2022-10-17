@@ -11,10 +11,18 @@ export class ReadAllCartUseCase {
   ) {}
 
   execute = async () => {
-    const carts = await this.cartRepository.readAll();
+    try {
+      const carts = await this.cartRepository.readAll();
 
-    if (!carts) return [];
+      if (!carts) return [];
+  
+      return carts;
+    } catch (err) {
+      return {
+        message: "Internal Server Error",
+        statusCode: 400,
+      }
+    }
 
-    return carts;
   };
 }
