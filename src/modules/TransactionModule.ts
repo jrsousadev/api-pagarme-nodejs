@@ -10,31 +10,39 @@ import { getStatusType } from "../shared/utils/getTypesPrisma";
 
 export class TransactionModule implements TransactionRepository {
   create = async (data: CreateTransactionData) => {
-    return await prismaClient.transaction.create({ data });
+    try {
+      return await prismaClient.transaction.create({ data });
+    } catch (err) {
+      throw err;
+    }
   };
 
   readOne = async ({ id, code, transactionId }: ReadOneTransactionData) => {
-    if (transactionId) {
+    try {
+      if (transactionId) {
+        return await prismaClient.transaction.findFirst({
+          where: {
+            transactionId,
+          },
+        });
+      }
+
+      if (code) {
+        return await prismaClient.transaction.findFirst({
+          where: {
+            code,
+          },
+        });
+      }
+
       return await prismaClient.transaction.findFirst({
         where: {
-          transactionId,
+          id,
         },
       });
+    } catch (err) {
+      throw err
     }
-
-    if (code) {
-      return await prismaClient.transaction.findFirst({
-        where: {
-          code,
-        },
-      });
-    }
-
-    return await prismaClient.transaction.findFirst({
-      where: {
-        id,
-      },
-    });
   };
 
   readAll = async () => {
