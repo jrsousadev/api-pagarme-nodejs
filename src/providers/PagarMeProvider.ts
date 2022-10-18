@@ -132,6 +132,26 @@ export class PagarMeProvider {
     return paymentTypeMap[payment];
   }
 
+  public async verifySignature(request: any) {
+    try {
+      const apiKey = process.env.PAGARME_API_KEY as string;
+      const verifyBody = qs.stringify(request.body);
+      const signature = request.headers["x-hub-signature"].replace("sha1=", "");
+
+      const verify = pagarme.postback.verifySignature(
+        apiKey,
+        verifyBody,
+        signature
+      );
+
+      if (!verify) return false;
+
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
   async process({
     billing,
     creditCard,
