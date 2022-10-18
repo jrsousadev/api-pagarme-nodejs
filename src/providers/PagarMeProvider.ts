@@ -169,6 +169,7 @@ export class PagarMeProvider {
 
     try {
       const client = await pagarme.client.connect({
+        encryption_key: process.env.PAGARME_API_CRIPT_KEY,
         api_key: process.env.PAGARME_API_KEY,
       });
 
