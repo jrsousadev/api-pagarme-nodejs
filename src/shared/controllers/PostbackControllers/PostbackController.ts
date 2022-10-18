@@ -7,7 +7,6 @@ class PostbackController {
   async pagarme(request: Request, response: Response) {
     try {
       const { id, object, current_status } = request.body;
-      const { tokenAccess } = request.params;
 
       const postbackUseCase = container.resolve(PostbackUseCase);
 
@@ -15,7 +14,7 @@ class PostbackController {
         id,
         object,
         current_status,
-        tokenAccess: String(tokenAccess),
+        request,
       });
 
       if (transaction.message) throw new AppError(transaction.message, transaction.statusCode);
