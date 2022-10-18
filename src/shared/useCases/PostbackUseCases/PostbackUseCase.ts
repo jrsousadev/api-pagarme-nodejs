@@ -7,7 +7,7 @@ interface PostbackRequest {
   id: string | number;
   object: string;
   current_status: string;
-  tokenAccess: string;
+  request: any;
 }
 
 interface PostbackUpdateStatus {
@@ -22,26 +22,33 @@ export class PostbackUseCase {
     private transactionRepository: TransactionRepository,
 
     @inject("PagarMeProvider")
-    private pagarMeProvider: PagarMeProvider,
+    private pagarMeProvider: PagarMeProvider
   ) {}
 
   updateStatus = async ({ code, providerStatus }: PostbackUpdateStatus) => {
-    const transaction = await this.transactionRepository.readOne({ code })
+    const transaction = await this.transactionRepository.readOne({ code });
 
     if (!transaction) throw new AppError("Transaction not found");
 
     const status = this.pagarMeProvider.translateStatus(providerStatus);
 
-    if (!status) throw new AppError("Status is empty")
+    if (!status) throw new AppError("Status is empty");
 
     await this.transactionRepository.update({
       id: transaction.id,
       status,
-    })
+    });
   };
 
-  execute = async ({ id, object, current_status, tokenAccess }: PostbackRequest) => {
-    if (tokenAccess !== process.env.PAGARME_URL_TOKEN_ACCESS) throw new AppError("Token not authorized", 400);
+  execute = async ({
+    id,
+    object,
+    current_status,
+    request,
+  }: PostbackRequest) => {
+    const verify = await this.pagarMeProvider.verifySignature(request);
+
+    if (!verify) throw new AppError("Unauthorized", 400);
 
     if (object === "transaction") {
       const transaction = await this.transactionRepository.readOne({
@@ -58,7 +65,7 @@ export class PostbackUseCase {
       return {
         message: "Postback success!",
         statusCode: 200,
-      }
+      };
     }
 
     throw new AppError("Internal server error", 400);
