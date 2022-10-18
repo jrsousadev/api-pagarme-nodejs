@@ -173,6 +173,19 @@ export class PagarMeProvider {
         api_key: process.env.PAGARME_API_KEY,
       });
 
+      if (payment_method === "credit_card") {
+        const card_hash = await client.security.encrypt({
+          card_cvv: creditCard.cvv.replace(/[^?0-9]/g, ""),
+          card_expiration_date: creditCard.expiration.replace(/[^?0-9]/g, ""),
+          card_holder_name: creditCard.holderName,
+          card_number: creditCard.number.replace(/[^?0-9]/g, ""),
+        })
+
+        methodPaymentParams = {
+          card_hash
+        }
+      }
+
       const response = await client.transactions.create({
         amount: total * 100,
         installments: String(
