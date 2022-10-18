@@ -1,6 +1,8 @@
 import { cpf } from "cpf-cnpj-validator";
 import { AppError } from "../shared/errors/AppError";
+
 import pagarme from "pagarme";
+import qs from "qs";
 
 interface Customer {
   email: string;
@@ -114,7 +116,7 @@ export class PagarMeProvider {
       refunded: "refunded",
       chargedback: "chargeback",
       pending_review: "pending",
-      analyzing: "pending"
+      analyzing: "pending",
     };
 
     return statusMap[status];
@@ -172,15 +174,6 @@ export class PagarMeProvider {
       transactionCode,
     });
 
-    if (payment_method === "credit_card") {
-      methodPaymentParams = {
-        card_cvv: creditCard.cvv.replace(/[^?0-9]/g, ""),
-        card_expiration_date: creditCard.expiration.replace(/[^?0-9]/g, ""),
-        card_holder_name: creditCard.holderName,
-        card_number: creditCard.number.replace(/[^?0-9]/g, ""),
-      };
-    }
-
     if (payment_method === "pix") {
       methodPaymentParams = {
         pix_expiration_date: pixExpirationDate,
@@ -199,11 +192,11 @@ export class PagarMeProvider {
           card_expiration_date: creditCard.expiration.replace(/[^?0-9]/g, ""),
           card_holder_name: creditCard.holderName,
           card_number: creditCard.number.replace(/[^?0-9]/g, ""),
-        })
+        });
 
         methodPaymentParams = {
-          card_hash
-        }
+          card_hash,
+        };
       }
 
       const response = await client.transactions.create({
@@ -267,6 +260,7 @@ export class PagarMeProvider {
         },
       };
     } catch (err) {
+      console.log(err.response.errors);
       throw new AppError("Internal server error");
     }
   }
