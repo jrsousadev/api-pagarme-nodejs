@@ -7,7 +7,6 @@ interface PostbackRequest {
   id: string | number;
   object: string;
   current_status: string;
-  request: any;
 }
 
 interface PostbackUpdateStatus {
@@ -44,12 +43,7 @@ export class PostbackUseCase {
     id,
     object,
     current_status,
-    request,
   }: PostbackRequest) => {
-    const verify = await this.pagarMeProvider.verifySignature(request);
-
-    if (!verify) throw new AppError("Unauthorized", 400);
-
     if (object === "transaction") {
       const transaction = await this.transactionRepository.readOne({
         transactionId: String(id),

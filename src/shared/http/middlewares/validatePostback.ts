@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from "express";
 
 import pagarme from "pagarme";
 import qs from "qs";
-import { AppError } from "../../errors/AppError";
 
 export const validatePostback = async (
   request: Request,
@@ -12,13 +11,11 @@ export const validatePostback = async (
   try {
     const apiKey = process.env.PAGARME_API_KEY as string;
     const verifyBody = qs.stringify(request.body);
-    let signature: string = "";
 
-    console.log(request.headers["x-hub-signature"])
+    let signature: any = "";
 
     if (request.headers["x-hub-signature"]) {
-      const getSignature = request.headers["x-hub-signature"];
-      console.log(getSignature)
+      signature = request.headers["x-hub-signature"].slice(5);
     }
 
     const verify = pagarme.postback.verifySignature(
@@ -27,10 +24,10 @@ export const validatePostback = async (
       signature
     );
 
-    if (!verify) return false;
+    if (!verify) throw Error;
 
     return next();
   } catch (err) {
-    throw new AppError("Unauthorized")
+    return response.status(400).json({ message: "Unauthorized" });
   }
 };

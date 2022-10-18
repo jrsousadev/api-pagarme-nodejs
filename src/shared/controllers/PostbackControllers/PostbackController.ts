@@ -14,7 +14,6 @@ class PostbackController {
         id,
         object,
         current_status,
-        request,
       });
 
       if (transaction.message) throw new AppError(transaction.message, transaction.statusCode);
