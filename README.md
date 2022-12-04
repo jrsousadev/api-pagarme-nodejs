@@ -53,38 +53,25 @@ API Desenvolvida para ser consumida no live-chat-web
 .
 ├── prisma
 ├── src/
-│   └── @types
+│   └── app
+│     └── modules
+│     └── repositories
+│     └── utils
+│     └── shared
+│       └── errors
+│       └── routes
+│       └── app.ts
+│       └── server.ts
+│       └── websocket.ts
+│   └── config
 │   └── database
-│   └── DTO
-│   └── modules
-│     └── CartModule
-│     └── TransactionModule
-│   └── providers
-│     └── PagarMeProvider
-|   └── repositories
-│     └── CartRepository
-│     └── TransactionRepository
-|   └── shared
-|       └── containers
-|       └── controllers
-|       └── errors
-|       └── http
-|         └── middlewares
-|         └── routes
-|           └── Cart-routes
-|           └── Transaction-routes
-|           └── Postback-routes
-|         └── schemas
-|           └── Cart-schemas
-|           └── Transaction-schemas
-|         └── app.ts
-|         └── server.ts
-|       └── useCases
-│         └── CartUseCases
-│         └── TransactionUseCases
-│         └── PostbackUseCases
-|       └── utils
+│   └── domain
+│     └── entities
 ├── tests/
+│   └── _database
+│   └── _modules
+│   └── _repositories
+│   └── _seed
 └── ...
 ```
 
@@ -93,19 +80,20 @@ API Desenvolvida para ser consumida no live-chat-web
 - Clone o repositório e instale as dependências.
 ```sh
 # install dependencies
-> yarn
-# or
-> yarn install
+> npm i
 
 # copy .env file
 > cp .env.example .env
 
-# Generating MONGODB
-> yarn prisma generate
+# Generating mongoDB with prisma models
+> npm prisma generate
+
+# Init tests
+> npm run test
 
 # start project
-> yarn dev
+> npm run dev
 
 # open in
-http://localhost:3000/
+http://localhost:8080/
 ```
