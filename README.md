@@ -51,6 +51,7 @@ API Desenvolvida para ser consumida no live-chat-web
 
 ```
 .
+├── prisma
 ├── src/
 │   └── @types
 │   └── database
@@ -84,6 +85,7 @@ API Desenvolvida para ser consumida no live-chat-web
 │         └── PostbackUseCases
 |       └── utils
 └── ...
+├── tests/
 ```
 
 ### Iniciando o Projeto
