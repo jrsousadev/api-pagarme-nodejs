@@ -20,12 +20,10 @@ API Desenvolvida para ser consumida no live-chat-web
 - [x] Get last message by chat
 - [x] Get all messages by chat
 - [x] Delete all messages
-
 - [x] Create chat
 - [x] Create group chat
 - [x] Get all chats by user
 - [x] Get chat
-
 - [x] Create user
 - [x] Get user
 
