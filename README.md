@@ -1,43 +1,53 @@
-## 😺 Pagarme API Integration with NodeJS, Prisma and MongoDB
+## 😺 Live chat project API using mongodb, nodejs, prisma, supertest and jest
 
-API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no seus devidos projetos.
+API Desenvolvida para ser consumida no live-chat-web
 
 ## O que foi utilizado no projeto
 
-- [x] Dependency Injection
-- [x] Swagger
 - [x] Typescript
 - [x] Express
 - [x] MongoDB
-- [x] Pagarme
+- [x] Mocks
+- [x] Supertest
+- [x] Jest
 - [x] Prisma
 - [x] Nodejs
 
-### Documentação Swagger
-- [x] http://localhost:3000/docs
-
 ### Regras de negócio
 
-- [x] Criar Transação
-- [x] Ler todas as Transações
-- [x] Criar Carrinho     
-- [x] Deletar Carrinho         
-- [x] Ler todos os Carrinhos
-- [x] Ler um Carrinho
-- [x] Atualizar Carrinho 
+- [x] Create message
+- [x] Get message
+- [x] Get last message by chat
+- [x] Get all messages by chat
+- [x] Delete all messages
 
-### Endpoints Cart
+- [x] Create chat
+- [x] Create group chat
+- [x] Get all chats by user
+- [x] Get chat
 
-- [x] [POST] "/api/cart"
-- [x] [PUT] "/api/cart/:id"
-- [x] [DELETE] "/api/cart/:id"
-- [x] [GET] "/api/cart/:id"
-- [x] [GET] "/api/cart"
+- [x] Create user
+- [x] Get user
 
-### Endpoints Transaction:
+### Endpoints Message
 
-- [x] [POST] "/api/transaction"
-- [x] [GET] "/api/transaction"
+- [x] [POST] "/api/message"
+- [x] [GET] "/api/message/chat/:chatId"
+- [x] [GET] "/api/message/lastMessage/:chatId"
+- [x] [GET] "/api/message/:id"
+- [x] [DELETE] "/api/message/all"
+
+### Endpoints Chat:
+
+- [x] [POST] "/api/chat"
+- [x] [POST] "/api/chat/group"
+- [x] [GET] "/api/chat/user/:userId"
+- [x] [GET] "/api/chat/:id"
+
+### Endpoints Use:
+
+- [x] [POST] "/api/user"
+- [x] [GET] "/api/user/:id"
 
 ### Arquitetura do Projeto
 
@@ -77,27 +87,6 @@ API Desenvolvida para ajudar pessoas com dificuldade em implementar o Pagarme no
 |       └── utils
 └── ...
 ```
-
-### Documentado com Swagger 
-![Screenshot_1](https://user-images.githubusercontent.com/92350736/196067851-7eb367cc-2a1e-4d1e-b0c2-a521d758ec60.png)
-
-### Explicação do .ENV
-![Screenshot_2](https://user-images.githubusercontent.com/92350736/196009138-fe827df0-56e5-426c-9064-a52cb0953881.png)
-
-### Criando uma transação no tipo: Cartão de Crédito
-![Screenshot_2](https://user-images.githubusercontent.com/92350736/196009571-2fcac14d-fdcf-4fa8-bf03-f108ef30c752.png)
-
-### Criando uma transação no tipo: Boleto
-![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009538-fcc72dad-68c9-46aa-baf4-69478e446a69.png)
-
-### Criando uma transação no tipo: PIX
-![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009503-b0027009-bed5-4939-b04a-3634338a8c95.png)
-
-### Atualizando status de transação
-![Screenshot_2](https://user-images.githubusercontent.com/92350736/196009480-6f6e4669-9040-4346-8461-0a3ab4d5abc4.png)
-
-### Criando carrinho com valor para criar transação
-![Screenshot_1](https://user-images.githubusercontent.com/92350736/196009710-6c9a0f68-e1d1-46aa-98e6-7f7616a41c68.png)
 
 ### Iniciando o Projeto
 
