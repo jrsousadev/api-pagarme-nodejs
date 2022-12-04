@@ -84,8 +84,8 @@ API Desenvolvida para ser consumida no live-chat-web
 │         └── TransactionUseCases
 │         └── PostbackUseCases
 |       └── utils
-└── ...
 ├── tests/
+└── ...
 ```
 
 ### Iniciando o Projeto
